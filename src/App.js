@@ -1,6 +1,7 @@
 import "./App.css";
 import ProductList from "./ProductList";
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App(props) {
   return (
@@ -14,29 +15,10 @@ function App(props) {
           </div>
           <div className="row">
             <div className="col-12" id="bloc_gauche">
-              <table className="table tasktable table-striped table-responsive">
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Description</th>
-                    <th>Deadline</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <ProductList />
-                </tbody>
-              </table>
+              <ProductList />
             </div>
           </div>
-          <div className="row">
-            <div className="col-12" id="bandeau_bas">
-              <div className="row">
-                <div className="col-12">
-                  <p>Copyright cybernaboo</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="row"></div>
         </div>
       </div>
     </div>

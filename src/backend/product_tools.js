@@ -20,6 +20,15 @@ function insertproduct(tab_val, client) {
     });
 }
 
+function updateproduct(tab_val, client) {
+    let cmdsql = `update produits set name=$2, description=$3, prix=$4, image=$5 where id=$1`;
+    client.query(cmdsql, tab_val, (err, res) => {
+        console.log(err, res);
+        console.log("Update produit ok");
+    });
+}
+
+
 function closetask(id, client) {
     let cmdsql = `update taches set cloture=true where id=${id}`;
     client.query(cmdsql, (err, res) => {
@@ -37,5 +46,6 @@ module.exports = {
     connectToSQL: connectToSQL,
     dbGetProducts: dbGetProducts,
     insertproduct: insertproduct,
+    updateproduct: updateproduct,
     closetask: closetask,
 };
