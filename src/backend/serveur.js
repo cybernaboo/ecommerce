@@ -38,13 +38,20 @@ app.post("/new-product", (req, res) => {
 });
 
 app.put("/update-product", (req, res) => {
-    let tab_val = [req.body.id, req.body.name, req.body.description, req.body.prix, req.body.image];
-    product_tools.updateproduct(tab_val, client);
+    let id_val = parseInt(req.body.id);
+    product_tools.updateproduct(id_val, client);
     product_tools.dbGetProducts(client, function (error, results, fields) {
         res.cookie('monpremiercookie', "trop la classe !", { maxAge: 900000, httpOnly: true });
         res.json(results.rows)});
 });
 
+app.delete("/delete-product", (req, res) => {
+    let tab_val = [req.body.id];
+    product_tools.deleteproduct(tab_val, client);
+    product_tools.dbGetProducts(client, function (error, results, fields) {
+        res.cookie('monpremiercookie', "trop la classe !", { maxAge: 900000, httpOnly: true });
+        res.json(results.rows)});
+});
 
 //
 // Bloc de code pour tester les cookies

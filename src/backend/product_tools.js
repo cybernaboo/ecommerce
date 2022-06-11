@@ -28,13 +28,14 @@ function updateproduct(tab_val, client) {
     });
 }
 
-
-function closetask(id, client) {
-    let cmdsql = `update taches set cloture=true where id=${id}`;
-    client.query(cmdsql, (err, res) => {
-        console.log(`Tâche ${id} clôturée`);
+function deleteproduct(id_val, client) {
+    let cmdsql = `delete from produits where id=$1`;
+    client.query(cmdsql, id_val, (err, res) => {
+        console.log(err, res);
+        console.log("Delete produit ok");
     });
 }
+
 
 function dbGetProducts(client, fonction_traitement_resultat_bdd) {
     let query =
@@ -47,5 +48,5 @@ module.exports = {
     dbGetProducts: dbGetProducts,
     insertproduct: insertproduct,
     updateproduct: updateproduct,
-    closetask: closetask,
+    deleteproduct: deleteproduct,
 };

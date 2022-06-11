@@ -1,0 +1,10 @@
+Tests
+-----
+Aprés lecture sur le net, apparemment pour le front, le framework de test à utiliser : @testing-library/react et pour le back: Jest
+
+Git
+---
+git fsck --lost-found : sauvetage des fichiers perdus
+git push -u origin -f master : push en précisant la branche cible
+git merge nabil/recover : merge depuis branche master
+git merge 799b945b742af7b57ef743a54001d6f74c33af4d : merge depuis id sauvetage

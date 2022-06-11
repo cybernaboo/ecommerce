@@ -48,7 +48,6 @@ function createSubmit(event, fonctionretour) {
     .then(() => reinitCreateInfos());
 }
 
-
 function updateSubmit(event, fonctionretour) {
   event.preventDefault();
   
@@ -68,8 +67,25 @@ function updateSubmit(event, fonctionretour) {
     .then((res) => res.json())
     .then((res) => fonctionretour(res))
     .then(() => reinitUpdateInfos());
-
 }
+
+function deleteSubmit(event, props) {
+  event.preventDefault();
+  
+  let produit = {
+    id: props.id,
+  };
+  console.log("produit delete :", produit)
+  const requestOptions = {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(produit),
+  };
+  fetch("http://localhost:3001/delete-product", requestOptions)
+    .then((res) => res.json())
+    .then((res) => props.fonctionretour(res));
+}
+
 
 function AddUpdateProduct(props) {
   return (
@@ -148,6 +164,9 @@ function AddUpdateProduct(props) {
 }
 
 function Produit(props) {
+  console.log("fonc fonctionretour : ", props.fonctionretour)
+  console.log("props : ", props)
+
   return (
     <tr>
       <td className="align-middle">
@@ -168,8 +187,6 @@ function Produit(props) {
       <td className="align-middle">
         <a href="#">
           <img
-            data-item={props.id}
-            name="img1"
             src={require("./edit.png")}
             width="25"
             height="25"
@@ -179,7 +196,8 @@ function Produit(props) {
       </td>
       <td className="align-middle">
         <a href="#">
-          <img src={require("./trash.png")} width="25" height="25" />
+          <img src={require("./trash.png")} width="25" height="25" onClick={(event) => deleteSubmit(event, props)}
+/>
         </a>
       </td>
     </tr>
@@ -188,6 +206,7 @@ function Produit(props) {
 
 function ProductList() {
   let [products, setProducts] = useState([]);
+  console.log("fonc set : ", setProducts)
 
   useEffect(() => {
     fetch("http://localhost:3001/get_products", {
@@ -200,6 +219,11 @@ function ProductList() {
       });
   }, []);
 
+  // function removeProductFromList(IdproductToRemove) {
+  //   const x = [...products.filter((item) => item.id != IdproductToRemove)];
+  //   setProducts(x);
+
+  }
   let produits = products.map((p) => {
     return (
       <Produit
@@ -209,6 +233,7 @@ function ProductList() {
         description={p.description}
         prix={p.prix}
         image={p.image}
+        fonctionretour={setProducts}
       />
     );
   });
