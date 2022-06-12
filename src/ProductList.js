@@ -204,7 +204,10 @@ function Produit(props) {
   );
 }
 
-function ProductList() {
+  // function removeProductFromList(IdproductToRemove) {
+  //   const x = [...products.filter((item) => item.id != IdproductToRemove)];
+  //   setProducts(x);
+  function ProductList() {
   let [products, setProducts] = useState([]);
   console.log("fonc set : ", setProducts)
 
@@ -219,11 +222,6 @@ function ProductList() {
       });
   }, []);
 
-  // function removeProductFromList(IdproductToRemove) {
-  //   const x = [...products.filter((item) => item.id != IdproductToRemove)];
-  //   setProducts(x);
-
-  }
   let produits = products.map((p) => {
     return (
       <Produit

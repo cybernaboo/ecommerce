@@ -30,6 +30,7 @@ app.get("/get_products", (req, res) => {
 });
 
 app.post("/new-product", (req, res) => {
+    if (req.body.prix===""){console.log("prix nul");req.body.prix="0"}
     let tab_val = [req.body.name, req.body.description, req.body.prix, req.body.image];
     product_tools.insertproduct(tab_val, client);
     product_tools.dbGetProducts(client, function (error, results, fields) {
