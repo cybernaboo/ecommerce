@@ -1,0 +1,12 @@
+Front :
+-------
+
+Back :
+------
+- Gestion des cookies :
+    - combien de produits ajoutés dans la session
+
+Divers :
+--------
+- Test fonction
+- Readme

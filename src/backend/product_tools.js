@@ -20,12 +20,22 @@ function insertproduct(tab_val, client) {
     });
 }
 
-function closetask(id, client) {
-    let cmdsql = `update taches set cloture=true where id=${id}`;
-    client.query(cmdsql, (err, res) => {
-        console.log(`Tâche ${id} clôturée`);
+function updateproduct(tab_val, client) {
+    let cmdsql = `update produits set name=$2, description=$3, prix=$4, image=$5 where id=$1`;
+    client.query(cmdsql, tab_val, (err, res) => {
+        console.log(err, res);
+        console.log("Mise à jour produit ok");
     });
 }
+
+function deleteproduct(id_val, client) {
+    let cmdsql = `delete from produits where id=$1`;
+    client.query(cmdsql, id_val, (err, res) => {
+        console.log(err, res);
+        console.log("Suppression produit ok");
+    });
+}
+
 
 function dbGetProducts(client, fonction_traitement_resultat_bdd) {
     let query =
@@ -37,5 +47,6 @@ module.exports = {
     connectToSQL: connectToSQL,
     dbGetProducts: dbGetProducts,
     insertproduct: insertproduct,
-    closetask: closetask,
+    updateproduct: updateproduct,
+    deleteproduct: deleteproduct,
 };
