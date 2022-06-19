@@ -24,7 +24,7 @@ function updateproduct(tab_val, client) {
     let cmdsql = `update produits set name=$2, description=$3, prix=$4, image=$5 where id=$1`;
     client.query(cmdsql, tab_val, (err, res) => {
         console.log(err, res);
-        console.log("Update produit ok");
+        console.log("Mise à jour produit ok");
     });
 }
 
@@ -32,7 +32,7 @@ function deleteproduct(id_val, client) {
     let cmdsql = `delete from produits where id=$1`;
     client.query(cmdsql, id_val, (err, res) => {
         console.log(err, res);
-        console.log("Delete produit ok");
+        console.log("Suppression produit ok");
     });
 }
 

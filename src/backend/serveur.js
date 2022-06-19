@@ -23,6 +23,7 @@ client = product_tools.connectToSQL()
 let userData = {};
 
 app.get("/get_products", (req, res) => {
+    console.log("API : /get_products");
     product_tools.dbGetProducts(client, function (error, results, fields) {
         res.cookie('monpremiercookie', "trop la classe !", { maxAge: 900000, httpOnly: true });
         res.json(results.rows);
@@ -30,7 +31,8 @@ app.get("/get_products", (req, res) => {
 });
 
 app.post("/new-product", (req, res) => {
-    if (req.body.prix===""){console.log("prix nul");req.body.prix="0"}
+    console.log("API : /new-product");
+    if (req.body.prix===""){console.log("Produit sans pris => mise à prix nul");req.body.prix="0"}
     let tab_val = [req.body.name, req.body.description, req.body.prix, req.body.image];
     product_tools.insertproduct(tab_val, client);
     product_tools.dbGetProducts(client, function (error, results, fields) {
@@ -39,14 +41,16 @@ app.post("/new-product", (req, res) => {
 });
 
 app.put("/update-product", (req, res) => {
-    let id_val = parseInt(req.body.id);
-    product_tools.updateproduct(id_val, client);
+    console.log("API : /update-product");
+    let tab_val = [req.body.id, req.body.name, req.body.description, req.body.prix, req.body.image];
+    product_tools.updateproduct(tab_val, client);
     product_tools.dbGetProducts(client, function (error, results, fields) {
         res.cookie('monpremiercookie', "trop la classe !", { maxAge: 900000, httpOnly: true });
         res.json(results.rows)});
 });
 
 app.delete("/delete-product", (req, res) => {
+    console.log("API : /delete-product");
     let tab_val = [req.body.id];
     product_tools.deleteproduct(tab_val, client);
     product_tools.dbGetProducts(client, function (error, results, fields) {

@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import ProductList from "./ProductList";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,22 +6,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App(props) {
   return (
     <div className="App">
-      <div>
         <div className="container">
           <div className="row">
             <div className="col-12" id="bandeau_haut">
-              <h3>Ecommerce Software Solution</h3>
+              <br/>
+              <h3 class="text-center shadow p-2 mb-2 bg-body rounded">Ecommerce Software Solution</h3>
             </div>
           </div>
           <div className="row">
-            <div className="col-12" id="bloc_gauche">
+            <div className="col-12">
               <ProductList />
             </div>
           </div>
-          <div className="row"></div>
         </div>
       </div>
-    </div>
   );
 }
 

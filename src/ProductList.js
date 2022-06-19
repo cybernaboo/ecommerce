@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-// import AddUpdateProduct from "./AddUpdateProduct";
+// import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function reinitCreateInfos(event) {
   document.getElementById("produit").value = "";
@@ -19,7 +19,6 @@ function initUpdateInfos(event, props) {
 }
 
 function reinitUpdateInfos(event) {
-  // event.preventDefault();
   console.log("reinit ok");
   document.getElementById("upd-id").value = "";
   document.getElementById("upd-produit").value = "";
@@ -29,7 +28,7 @@ function reinitUpdateInfos(event) {
 }
 
 function createSubmit(event, fonctionretour) {
-  event.preventDefault();
+  // event.preventDefault();
   console.log("name :", document.getElementById("produit").value);
   let produit = {
     name: document.getElementById("produit").value,
@@ -50,7 +49,7 @@ function createSubmit(event, fonctionretour) {
 
 function updateSubmit(event, fonctionretour) {
   event.preventDefault();
-  
+
   let produit = {
     id: document.getElementById("upd-id").value,
     name: document.getElementById("upd-produit").value,
@@ -71,11 +70,11 @@ function updateSubmit(event, fonctionretour) {
 
 function deleteSubmit(event, props) {
   event.preventDefault();
-  
+
   let produit = {
     id: props.id,
   };
-  console.log("produit delete :", produit)
+  console.log("produit delete :", produit);
   const requestOptions = {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
@@ -86,86 +85,131 @@ function deleteSubmit(event, props) {
     .then((res) => props.fonctionretour(res));
 }
 
-
 function AddUpdateProduct(props) {
   return (
     <div>
       <form
         id="formulaire"
         onSubmit={(event) => createSubmit(event, props.fonctionretour)}
+        class = "card p-3 bg-light"
       >
-        <br />
-        <label>
-          Nom :
-          <input type="text" id="produit" />
-        </label>
-        <br />
-        <br />
-        <label>
-          Description :
-          <input type="text" id="description" />
-        </label>
-        <br />
-        <br />
-        <label>
-          Prix :
-          <input type="text" id="prix" />
-        </label>
-        <br />
-        <br />
-        <label>
-          URL Image :
-          <input type="text" id="image" />
-        </label>
-        <br />
-        <br />
-        <input type="submit" value="Ajouter produit" />
+        <div className="form-group">
+          <label htmlFor="produit">Nom</label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="produit"
+              placeholder="produit"
+              
+            />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">
+            Description
+          </label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="description"
+              placeholder="description"
+            />
+          </div>
+        <div className="form-group">
+          <label htmlFor="prix">
+            Prix
+          </label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="prix"
+              placeholder="##.##"
+              pattern="^\d*(\.\d{0,2})?$"
+            />
+        </div>
+        <div className="form-group">
+          <label htmlFor="image">
+            Lien image
+          </label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="image"
+              placeholder="http://xxxxxxxxx"
+            />
+          </div>
+          <br/>
+        <button type="submit" className="btn btn-primary form-control">
+          Ajouter produit
+        </button>
       </form>
 
       <form
         id="formulaire"
         onSubmit={(event) => updateSubmit(event, props.fonctionretour)}
+        class = "card p-3 bg-light"
       >
+        <div className="form-group">
+          <label htmlFor="upd-id">Référence</label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="upd-id"
+              placeholder="Id"
+              readonly
+            />
+        </div>
+        <div className="form-group">
+          <label htmlFor="upd-produit">Nom</label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="upd-produit"
+              placeholder="produit"
+            />
+        </div>
+        <div className="form-group">
+          <label htmlFor="upd-description">
+            Description
+          </label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="upd-description"
+              placeholder="description"
+            />
+          </div>
+        <div className="form-group">
+          <label htmlFor="upd-prix">
+            Prix
+          </label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="upd-prix"
+              placeholder="##.##"
+            />
+        </div>
+        <div className="form-group">
+          <label htmlFor="upd-image">
+            Lien image
+          </label>
+            <input
+              className="form-control shadow p-2 mb-2 bg-body rounded"
+              type="text"
+              id="upd-image"
+              placeholder="http://xxxxxxxxx"
+            />
+          </div>
         <br />
-        <label>
-          Référence :
-          <input type="text" id="upd-id" readOnly/>
-        </label>
-        <br />
-        <br />
-        <label>
-          Nom :
-          <input type="text" id="upd-produit" />
-        </label>
-        <br />
-        <br />
-        <label>
-          Description :
-          <input type="text" id="upd-description" />
-        </label>
-        <br />
-        <br />
-        <label>
-          Prix :
-          <input type="text" id="upd-prix" />
-        </label>
-        <br />
-        <br />
-        <label>
-          URL Image :
-          <input type="text" id="upd-image" />
-        </label>
-        <br />
-        <br />
-        <input type="submit" value="Modifier produit" />
+        <input type="submit" value="Modifier produit" className="btn btn-primary form-control"/>
       </form>
     </div>
   );
 }
 
 function Produit(props) {
-  console.log("fonc fonctionretour : ", props.fonctionretour)
-  console.log("props : ", props)
+  console.log("fonc fonctionretour : ", props.fonctionretour);
+  console.log("props : ", props);
 
   return (
     <tr>
@@ -196,20 +240,21 @@ function Produit(props) {
       </td>
       <td className="align-middle">
         <a href="#">
-          <img src={require("./trash.png")} width="25" height="25" onClick={(event) => deleteSubmit(event, props)}
-/>
+          <img
+            src={require("./trash.png")}
+            width="25"
+            height="25"
+            onClick={(event) => deleteSubmit(event, props)}
+          />
         </a>
       </td>
     </tr>
   );
 }
 
-  // function removeProductFromList(IdproductToRemove) {
-  //   const x = [...products.filter((item) => item.id != IdproductToRemove)];
-  //   setProducts(x);
-  function ProductList() {
+function ProductList() {
   let [products, setProducts] = useState([]);
-  console.log("fonc set : ", setProducts)
+  console.log("fonc set : ", setProducts);
 
   useEffect(() => {
     fetch("http://localhost:3001/get_products", {
@@ -236,20 +281,24 @@ function Produit(props) {
     );
   });
   return (
-    <div>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Référence</th>
-            <th>Produit</th>
-            <th>Description</th>
-            <th>Prix</th>
-            <th>Visuel</th>
-          </tr>
-        </thead>
-        <tbody>{produits}</tbody>
-      </table>
-      <AddUpdateProduct fonctionretour={setProducts} />
+    <div className="row">
+      <div className="col-8">
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>Référence</th>
+              <th>Produit</th>
+              <th>Description</th>
+              <th>Prix</th>
+              <th>Visuel</th>
+            </tr>
+          </thead>
+          <tbody>{produits}</tbody>
+        </table>
+      </div>
+      <div className="col-4">
+        <AddUpdateProduct fonctionretour={setProducts} />
+      </div>
     </div>
   );
 }
