@@ -38,7 +38,8 @@ function createSubmit(event, fonctionretour) {
   };
   const requestOptions = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    credentials : "include",
+    headers: { "Content-Type": "application/json"},
     body: JSON.stringify(produit),
   };
   fetch("http://localhost:3001/new-product", requestOptions)
@@ -91,7 +92,7 @@ function AddUpdateProduct(props) {
       <form
         id="formulaire"
         onSubmit={(event) => createSubmit(event, props.fonctionretour)}
-        class = "card p-3 bg-light"
+        className = "card p-3 bg-light"
       >
         <div className="form-group">
           <label htmlFor="produit">Nom</label>
@@ -146,7 +147,7 @@ function AddUpdateProduct(props) {
       <form
         id="formulaire"
         onSubmit={(event) => updateSubmit(event, props.fonctionretour)}
-        class = "card p-3 bg-light"
+        className = "card p-3 bg-light"
       >
         <div className="form-group">
           <label htmlFor="upd-id">Référence</label>
@@ -155,7 +156,7 @@ function AddUpdateProduct(props) {
               type="text"
               id="upd-id"
               placeholder="Id"
-              readonly
+              readOnly
             />
         </div>
         <div className="form-group">

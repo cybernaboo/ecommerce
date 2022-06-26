@@ -1,12 +1,14 @@
-Front :
+Todo :
 -------
-
-Back :
-------
-- Gestion des cookies :
-    - combien de produits ajoutés dans la session
-
-Divers :
---------
-- Test fonction
+- Test fonction composant react (jest react-testing-library)
 - Readme
+
+Optionnel :
+-----------
+- scroll liste des produits dans une fenetre autonome
+- Remplacer cookie-parser par Express-session
+- afficher combien de produits ajoutés dans la session par le user
+
+readme :
+--------
+- install pg, supertest, bootstrap, cookie-parser, uuid

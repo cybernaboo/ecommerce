@@ -10,7 +10,7 @@ function App(props) {
           <div className="row">
             <div className="col-12" id="bandeau_haut">
               <br/>
-              <h3 class="text-center shadow p-2 mb-2 bg-body rounded">Ecommerce Software Solution</h3>
+              <h3 className="text-center shadow p-2 mb-2 bg-body rounded">Ecommerce Software Solution</h3>
             </div>
           </div>
           <div className="row">
