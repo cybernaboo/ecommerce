@@ -8,5 +8,9 @@ Back :
 
 Divers :
 --------
-- Test fonction
+- Test fonction (jest react-testing-library)
 - Readme
+
+Optionnel :
+-----------
+- Remplacer cookie-parser par Express-session

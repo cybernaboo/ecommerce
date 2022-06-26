@@ -15,7 +15,7 @@ function connectToSQL() {
 function insertproduct(tab_val, client) {
     let cmdsql = `insert into produits (name, description, prix, image) values($1,$2,$3,$4)`;
     client.query(cmdsql, tab_val, (err, res) => {
-        console.log(err, res);
+        // console.log(err, res);
         console.log("Création produit ok");
     });
 }
@@ -23,7 +23,7 @@ function insertproduct(tab_val, client) {
 function updateproduct(tab_val, client) {
     let cmdsql = `update produits set name=$2, description=$3, prix=$4, image=$5 where id=$1`;
     client.query(cmdsql, tab_val, (err, res) => {
-        console.log(err, res);
+        // console.log(err, res);
         console.log("Mise à jour produit ok");
     });
 }
@@ -31,7 +31,7 @@ function updateproduct(tab_val, client) {
 function deleteproduct(id_val, client) {
     let cmdsql = `delete from produits where id=$1`;
     client.query(cmdsql, id_val, (err, res) => {
-        console.log(err, res);
+        // console.log(err, res);
         console.log("Suppression produit ok");
     });
 }

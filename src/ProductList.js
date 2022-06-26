@@ -38,7 +38,8 @@ function createSubmit(event, fonctionretour) {
   };
   const requestOptions = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    credentials : "include",
+    headers: { "Content-Type": "application/json"},
     body: JSON.stringify(produit),
   };
   fetch("http://localhost:3001/new-product", requestOptions)
