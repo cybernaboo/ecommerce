@@ -19,7 +19,7 @@ serveur.use(express.json())
 serveur.use(express.static("src"));
 serveur.use(express.urlencoded({ extended: true }));
 
-client = product_tools.connectToSQL()
+let client = product_tools.connectToSQL()
 let userData = {};
 
 serveur.get("/get_products", (req, res) => {
@@ -27,7 +27,7 @@ serveur.get("/get_products", (req, res) => {
     product_tools.dbGetProducts(client, function (error, results, fields) {
         if (typeof (req.cookies.client) === "undefined") {
             // userid = Math.floor(Math.random() * 10000);
-            userid = uuid.v4();
+            let userid = uuid.v4();
             res.cookie('client', userid, { maxAge: 900000, httpOnly: true });
             userData[userid] = [];
             console.log("nouveau userid : ", userid);
@@ -47,16 +47,10 @@ serveur.post("/new-product", (req, res) => {
     if (userData[userid] === undefined){
         userData[userid] = [];
     } ;
-
-    console.log("userid : ", userid)
     productid = req.body.name;
-    console.log("productid : ", productid)
-    console.log("userdata avant maj :", userData)
     userData[userid].push(productid);
-    console.log("userdata après maj :", userData)
     console.log("produits users ajoutés : ", userData);
     product_tools.dbGetProducts(client, function (error, results, fields) {
-        // res.cookie('monpremiercookie', "trop la classe !", { maxAge: 900000, httpOnly: true });
         res.json(results.rows)
     });
 });
@@ -79,29 +73,6 @@ serveur.delete("/delete-product", (req, res) => {
         res.cookie('monpremiercookie', "trop la classe !", { maxAge: 900000, httpOnly: true });
         res.json(results.rows)
     });
-});
-
-//
-// Bloc de code pour tester les cookies
-//
-serveur.get("/welcome_page", (req, res) => {
-    if (typeof (req.cookies.userid) === "undefined") {
-        // userid = Math.floor(Math.random() * 10000);
-        userid = uuid.v4();
-        res.cookie('useridtest', userid, { maxAge: 900000, httpOnly: true });
-        userData[userid] = [];
-        console.log("nouveau userid : ", userid);
-        console.log("panier users : ", userData);
-    }
-    console.log("page de bienvenue : ");
-    res.json("<h1>Bienvenue sur notre site</h1>");
-});
-
-serveur.post("/ajouter-produit-panier:productid", (req, res) => {
-    userid = req.cookies.useridtest;
-    productid = req.params.productid;
-    userData[userid].push(productid);
-    console.log("panier users alimenté : ", userData);
 });
 
 serveur.listen(port, () => {

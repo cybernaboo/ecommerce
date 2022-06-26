@@ -1,30 +1,25 @@
 {
-  "name": "exoreact3",
+  "name": "sandbox",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^28.1.3",
-    "babel-jest": "^28.1.1",
     "bootstrap": "^5.1.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "nodemon": "^2.0.18",
-    "npm": "^8.13.1",
     "pg": "^8.7.3",
-    "react": "^18.1.0",
-    "react-bootstrap": "^2.4.0",
-    "react-dom": "^18.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "uid": "^2.0.0",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,14 +41,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-syntax-jsx": "^7.17.12",
-    "@babel/preset-env": "^7.18.2",
-    "@babel/preset-react": "^7.17.12",
-    "@testing-library/react": "^13.3.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-react": "^6.24.1",
-    "jest": "^28.1.1",
-    "jtest": "^0.0.1",
     "supertest": "^6.2.3"
   }
 }
