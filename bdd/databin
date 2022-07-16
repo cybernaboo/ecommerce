@@ -1,4 +1,0 @@
-1	Tomates	Rouge	3.5	https://image.shutterstock.com/image-photo/tomato-isolated-on-white-background-600w-650684470.jpg
-2	Carottes	Orange	4.75	https://image.shutterstock.com/image-photo/carrot-isolated-on-white-background-600w-1579576909.jpg
-7	salade	verte	2.45	https://image.shutterstock.com/image-photo/green-butter-lettuce-vegetable-salad-600w-1011650908.jpg
-8	courgettes	verte et allongée	4.5	https://image.shutterstock.com/image-photo/design-image-fresh-whole-zucchini-600w-599512631.jpg

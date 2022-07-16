@@ -1,3 +1,52 @@
+# Project ECOMMERCE
+Gestion d'une liste de produits
+
+![forthebadge](src/made-for-efrei-project.svg)  ![forthebadge](src/training-sg-reskilling---web-developer.svg)
+
+Cette application fonctionne à partir d'un navigateur web, permet à l'utilisateur de gérer une base de produits avec les fonctions CRUD (visualisation/création/modification/suppression).
+
+## Pour commencer
+
+Elle utilise une base de données Postgres pour enregistrer les données de façon persistante.
+L'application utilise la techno nodejs pour le backend (framework express) et du html/css/reactjs pour l'interface utilisateur.
+
+### Pré-requis
+
+Les pré-requis pour utiliser ce projet :
+
+- Installer un navigateur internet sur le poste de travail
+- Installer le sgbd postgresql (local ou serveur)
+- Installer nodejs (local ou serveur)
+- Installer les librairies node : express, pg, react
+
+### Installation
+
+* Créer une base de données dans votre sgbd postgres ``WEBJS`` (modifiable dans le source src/backend/product_tools.js)
+* Executez le script sql ``create_tables.sql`` pour créer la table des tâches (script dispo dans dossier bdd)
+* Initialiser la table ``produits`` depuis le script ``export_import.sql`` en utilisant le fichier de données ``produits.csv``
+* Adaptez le code de la fonction "function connectToSQL()" dans le source ``src/backend/product_tools.js`` pour personnaliser : nom de la BDD, nom et le mot de passe utilisateur, le serveur et le port 
+
+## Démarrage
+
+Dans le répertoire racine du projet, ouvrez une fenêtre de commandes et lancez la commande "npm start" :
+* Pour accéder à l'interface utilisateur, indiquez l'url http://localhost:3000 dans votre nabigateur web
+
+## Fabriqué avec
+
+* [Visual Studio Code](https://code.visualstudio.com/) - Environnement de développement
+* [React](https://fr.reactjs.org/) - Librairie front end
+
+## Versions
+**Dernière version stable :** 1.0
+**Dernière version :** 1.0
+
+## Auteurs
+* **Nabil AICI** _cybernaboo_ [@cybernaboo](https://github.com/cybernaboo)
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -28,43 +77,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
