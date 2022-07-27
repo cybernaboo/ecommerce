@@ -1,8 +1,6 @@
 # Project ECOMMERCE
 Gestion d'une liste de produits
 
-![forthebadge](src/made-for-efrei-project.svg)  ![forthebadge](src/training-sg-reskilling---web-developer.svg)
-
 Cette application fonctionne à partir d'un navigateur web, permet à l'utilisateur de gérer une base de produits avec les fonctions CRUD (visualisation/création/modification/suppression).
 
 ## Pour commencer
